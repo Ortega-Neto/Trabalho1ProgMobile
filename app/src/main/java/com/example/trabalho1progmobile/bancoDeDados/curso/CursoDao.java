@@ -10,7 +10,7 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-public interface CrusoDao {
+public interface CursoDao {
     @Query("SELECT * FROM curso")
     List<Curso> getAllCursos();
 
@@ -21,10 +21,7 @@ public interface CrusoDao {
     Curso findByName(String nomecurso);
 
     @Update
-    public void updateUsers(Curso... curso);
-
-    @Insert
-    void insertAll(Curso... curso);
+    public void updateCurso(Curso... curso);
 
     @Delete
     void delete(Curso curso);

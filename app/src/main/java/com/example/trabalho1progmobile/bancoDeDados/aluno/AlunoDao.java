@@ -20,10 +20,7 @@ public interface AlunoDao {
     Aluno findByName(String nomeAluno);
 
     @Update
-    public void updateUsers(Aluno... aluno);
-
-    @Insert
-    void insertAll(Aluno... aluno);
+    public void updateAluno(Aluno... aluno);
 
     @Delete
     void delete(Aluno aluno);
