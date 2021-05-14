@@ -6,6 +6,7 @@
     <string name="id">Id</string>
     <string name="nome">Nome</string>
     <string name="horas">Horas</string>
+    <string name="remover">- Remover</string>
     <string name="cpf">CPF</string>
     <string name="telefone">Telefone</string>
     <string name="nomeAluno">Nome</string>
