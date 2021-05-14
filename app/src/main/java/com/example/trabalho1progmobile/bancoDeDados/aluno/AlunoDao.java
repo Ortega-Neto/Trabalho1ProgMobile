@@ -5,11 +5,13 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
-
 import java.util.List;
 
 @Dao
 public interface AlunoDao {
+    @Insert
+    void inserirAluno(Aluno aluno);
+
     @Query("SELECT * FROM aluno")
     List<Aluno> getAllAlunos();
 
@@ -20,7 +22,7 @@ public interface AlunoDao {
     Aluno findByName(String nomeAluno);
 
     @Update
-    public void updateAluno(Aluno... aluno);
+    void updateAluno(Aluno aluno);
 
     @Delete
     void delete(Aluno aluno);

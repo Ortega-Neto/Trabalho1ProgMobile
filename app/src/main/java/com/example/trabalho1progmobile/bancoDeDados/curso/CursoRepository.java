@@ -5,8 +5,8 @@ import java.util.List;
 import static com.example.trabalho1progmobile.utils.AppUtils.bancoDeDados;
 
 public class CursoRepository {
-    public static void inserirCurso(Curso Curso){
-        bancoDeDados.cursoDao().getAllCursos();
+    public static void inserirCurso(Curso curso){
+        bancoDeDados.cursoDao().inserirCurso(curso);
     }
 
     public static List<Curso> buscarTodosOsCursos(){
@@ -17,11 +17,11 @@ public class CursoRepository {
         return bancoDeDados.cursoDao().findByName(nome);
     }
 
-    public static void deletarCurso(Curso Curso){
-        bancoDeDados.cursoDao().delete(Curso);
+    public static void deletarCurso(Curso curso){
+        bancoDeDados.cursoDao().delete(curso);
     }
 
-    public static void atualizarCurso(Curso Curso){
-        bancoDeDados.cursoDao().updateCurso(Curso);
+    public static void atualizarCurso(Curso curso){
+        bancoDeDados.cursoDao().updateCurso(curso);
     }
 }

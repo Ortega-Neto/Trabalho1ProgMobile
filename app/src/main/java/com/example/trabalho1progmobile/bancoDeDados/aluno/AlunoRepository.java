@@ -6,7 +6,7 @@ import static com.example.trabalho1progmobile.utils.AppUtils.bancoDeDados;
 public class AlunoRepository{
 
     public static void inserirAluno(Aluno aluno){
-        bancoDeDados.alunoDao().getAllAlunos();
+        bancoDeDados.alunoDao().inserirAluno(aluno);
     }
 
     public static List<Aluno> buscarTodosOsAlunos(){
