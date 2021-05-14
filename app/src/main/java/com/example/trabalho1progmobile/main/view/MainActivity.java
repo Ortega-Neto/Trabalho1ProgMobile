@@ -1,4 +1,4 @@
-package com.example.trabalho1progmobile;
+package com.example.trabalho1progmobile.main.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
@@ -8,7 +8,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
-import com.example.trabalho1progmobile.alunos.AlunoListAdapter;
+
+import com.example.trabalho1progmobile.R;
 import com.example.trabalho1progmobile.bancoDeDados.BancoDeDados;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
@@ -20,8 +21,6 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private ListView lstViewAlunoCursos;
     public static BancoDeDados bancoDeDados;
-    private static AlunoRepository alunoRepository;
-    private static CursoRepository cursoRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

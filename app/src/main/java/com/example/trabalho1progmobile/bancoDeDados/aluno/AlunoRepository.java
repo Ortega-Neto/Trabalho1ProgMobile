@@ -1,7 +1,7 @@
 package com.example.trabalho1progmobile.bancoDeDados.aluno;
 import java.util.List;
 
-import static com.example.trabalho1progmobile.MainActivity.bancoDeDados;
+import static com.example.trabalho1progmobile.main.view.MainActivity.bancoDeDados;
 
 public class AlunoRepository{
     public static void inserirAluno(Aluno aluno){

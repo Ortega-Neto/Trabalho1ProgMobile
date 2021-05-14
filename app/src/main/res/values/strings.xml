@@ -5,6 +5,8 @@
     <string name="email">Email</string>
     <string name="id">Id</string>
     <string name="nome">Nome</string>
+    <string name="curso">Curso</string>
+    <string name="quantidade_de_horas">Quantidade de Horas</string>
 
     <string-array name="alunoCurso">
         <item>Aluno</item>
