@@ -1,8 +1,7 @@
 package com.example.trabalho1progmobile.bancoDeDados.curso;
-
-
 import java.util.List;
-import static com.example.trabalho1progmobile.utils.AppUtils.bancoDeDados;
+
+import static com.example.trabalho1progmobile.MainActivity.bancoDeDados;
 
 public class CursoRepository {
     public static void inserirCurso(Curso curso){

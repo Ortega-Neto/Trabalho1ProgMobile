@@ -1,10 +1,9 @@
 package com.example.trabalho1progmobile.bancoDeDados.aluno;
-
 import java.util.List;
-import static com.example.trabalho1progmobile.utils.AppUtils.bancoDeDados;
+
+import static com.example.trabalho1progmobile.MainActivity.bancoDeDados;
 
 public class AlunoRepository{
-
     public static void inserirAluno(Aluno aluno){
         bancoDeDados.alunoDao().inserirAluno(aluno);
     }
