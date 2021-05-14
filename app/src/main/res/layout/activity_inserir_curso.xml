@@ -19,13 +19,13 @@
             android:orientation="vertical">
 
             <include
-                layout="@layout/bloco_formulario_aluno"
+                layout="@layout/bloco_formulario_curso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"/>
 
             <Button
-                android:id="@+id/btnSalvarAluno"
+                android:id="@+id/btnSalvarCurso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"

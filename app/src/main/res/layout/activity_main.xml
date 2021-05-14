@@ -23,7 +23,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:divider="@color/black" >
 
         </ListView>
     </LinearLayout>
@@ -38,22 +39,22 @@
         android:gravity="bottom">
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/round_button_default"
-            android:text="@string/adicionar_curso" />
-
-        <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnInserirAluno"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="@drawable/round_button_default"
             android:text="@string/adicionar_aluno" />
+
+        <Button
+            android:id="@+id/btnInserirCurso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_button_default"
+            android:text="@string/adicionar_curso" />
     </LinearLayout>
 
 </LinearLayout>

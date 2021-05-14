@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho1ProgMobile">
-        <activity android:name=".inserirAluno.InserirAlunoActivity"></activity>
+        <activity android:name=".inserirCurso.InserirCursoActivity"></activity>
+        <activity
+            android:name=".inserirAluno.InserirAlunoActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".main.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

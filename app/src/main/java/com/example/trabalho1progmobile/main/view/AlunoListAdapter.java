@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.trabalho1progmobile.R;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
@@ -36,13 +36,8 @@ public class AlunoListAdapter extends ArrayAdapter<Aluno> {
         Aluno a = getItem(position);
 
         if (a != null) {
-            EditText edtNomeDoAluno = (EditText) v.findViewById(R.id.edtNomeDoAluno);
-            EditText edtIDAluno = (EditText) v.findViewById(R.id.edtIDAluno);
-            EditText edtEmail = (EditText) v.findViewById(R.id.edtEmail);
-
+            TextView edtNomeDoAluno = (TextView) v.findViewById(R.id.txtViewNomeDoAluno);
             edtNomeDoAluno.setText(a.nomeAluno);
-            edtIDAluno.setText(a.alunoId);
-            edtEmail.setText(a.email);
         }
 
         return v;

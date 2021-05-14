@@ -4,8 +4,8 @@ import java.util.List;
 import static com.example.trabalho1progmobile.main.view.MainActivity.bancoDeDados;
 
 public class AlunoRepository{
-    public static void inserirAluno(Aluno aluno){
-        bancoDeDados.alunoDao().inserirAluno(aluno);
+    public static long inserirAluno(Aluno aluno){
+        return bancoDeDados.alunoDao().inserirAluno(aluno);
     }
 
     public static List<Aluno> buscarTodosOsAlunos(){

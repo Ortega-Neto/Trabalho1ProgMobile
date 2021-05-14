@@ -10,7 +10,7 @@ import java.util.List;
 @Dao
 public interface CursoDao {
     @Insert
-    void inserirCurso(Curso curso);
+    long inserirCurso(Curso curso);
 
     @Query("SELECT * FROM curso")
     List<Curso> getAllCursos();
