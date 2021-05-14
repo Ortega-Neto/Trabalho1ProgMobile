@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:minHeight="1dp">
+
         <Spinner
             android:id="@+id/spinnerAlunoCurso"
             android:layout_width="match_parent"
@@ -17,6 +18,7 @@
             android:background="@drawable/spinner_layout"/>
 
         <ListView
+            android:id="@+id/lstViewAlunoCursos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -25,7 +27,6 @@
 
         </ListView>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
