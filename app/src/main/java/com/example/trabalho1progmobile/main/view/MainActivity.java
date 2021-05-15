@@ -1,7 +1,6 @@
 package com.example.trabalho1progmobile.main.view;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,23 +10,26 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
-
 import com.example.trabalho1progmobile.R;
 import com.example.trabalho1progmobile.bancoDeDados.BancoDeDados;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
+import com.example.trabalho1progmobile.infoAluno.InfoAlunoActivity;
 import com.example.trabalho1progmobile.inserirAluno.InserirAlunoActivity;
 import com.example.trabalho1progmobile.inserirCurso.InserirCursoActivity;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class MainActivity extends AppCompatActivity {
     public static BancoDeDados bancoDeDados;
     private ListView lstViewAlunoCursos;
     private int itemSpinnerSelecionado;
+    private List<Curso> listaDeCursos;
+    private List<Aluno> listaDeAlunos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        lstViewAlunoCursos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(itemSpinnerSelecionado == 0) {
+                    opcoesAluno(listaDeAlunos.get(position));
+                }
+                else {
+                    opcoesCurso(listaDeCursos.get(position));
+                }
+
+            }
+        });
     }
 
     private void criarSpinnerAlunoCurso(){
@@ -116,13 +131,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void listarAlunos(){
         AsyncTask.execute(() -> {
-            List<Aluno> listaDeCursos = (ArrayList<Aluno>) AlunoRepository.buscarTodosOsAlunos();
+            listaDeAlunos = (ArrayList<Aluno>) AlunoRepository.buscarTodosOsAlunos();
 
             runOnUiThread(()-> {
                 ArrayAdapter arrayAdapterAlunos = new AlunoListAdapter(
                         this,
                         R.layout.list_item_aluno,
-                        listaDeCursos
+                        listaDeAlunos
                         );
                 lstViewAlunoCursos.setAdapter(arrayAdapterAlunos);
             });
@@ -131,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void listarCursos(){
         AsyncTask.execute(() -> {
-            List<Curso> listaDeCursos = (ArrayList<Curso>) CursoRepository.buscarTodosOsCursos();
+            listaDeCursos = (ArrayList<Curso>) CursoRepository.buscarTodosOsCursos();
 
             runOnUiThread(()-> {
                 ArrayAdapter arrayAdapterCursos = new CursoListAdapter(
@@ -142,5 +157,65 @@ public class MainActivity extends AppCompatActivity {
                 lstViewAlunoCursos.setAdapter(arrayAdapterCursos);
             });
         });
+    }
+
+    private void opcoesAluno(Aluno aluno){
+        new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
+            .setTitleText("Opções para o aluno" + aluno.nomeAluno)
+            .setConfirmText("Info")
+            .setCancelText("Deletar Aluno")
+            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                @Override
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                    Intent intent = new Intent(
+                            MainActivity.this,
+                            InfoAlunoActivity.class
+                    );
+                    startActivity(intent);
+                    intent.putExtra("aluno", aluno);
+                    sweetAlertDialog.dismissWithAnimation();
+                    startActivity(intent);
+
+                }
+            })
+            .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                @Override
+                public void onClick(SweetAlertDialog sweetAlertDialog) {
+                    AlunoRepository.deletarAluno(aluno);
+                    sweetAlertDialog.dismissWithAnimation();
+                    listarAlunos();
+                }
+            })
+            .show();
+    }
+
+    private void opcoesCurso(Curso curso){
+        new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
+                .setTitleText("Opções para o aluno" + curso.nomeCurso)
+                .setConfirmText("Info")
+                .setCancelText("Deletar Aluno")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        Intent intent = new Intent(
+                                MainActivity.this,
+                                InfoAlunoActivity.class
+                        );
+                        startActivity(intent);
+                        intent.putExtra("curso", curso);
+                        sweetAlertDialog.dismissWithAnimation();
+                        startActivity(intent);
+
+                    }
+                })
+                .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                        CursoRepository.deletarCurso(curso);
+                        sweetAlertDialog.dismissWithAnimation();
+                        listarCursos();
+                    }
+                })
+                .show();
     }
 }
