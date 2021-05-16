@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".inserirAluno.InserirAlunoActivity"
+    tools:context=".aluno.AlunoActivity"
     android:orientation="vertical">
 
     <ScrollView
@@ -36,6 +36,15 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/round_button_default"
                 android:text="@string/salvar" />
+
+            <Button
+                android:id="@+id/btnDeletarAluno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:background="@drawable/round_button_default"
+                android:text="@string/deletar" />
         </LinearLayout>
     </ScrollView>
 

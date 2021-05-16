@@ -21,7 +21,7 @@
             android:name=".inserirCurso.InserirCursoActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity
-            android:name=".inserirAluno.InserirAlunoActivity"
+            android:name=".aluno.AlunoActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".main.view.MainActivity">
             <intent-filter>

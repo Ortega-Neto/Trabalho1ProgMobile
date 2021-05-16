@@ -15,4 +15,16 @@ public class SpinnerCursoUtils {
         arrayDeCursos.add("Novo Curso");
         return arrayDeCursos;
     }
+
+    public static int retornaOValorDaPosicaoDoCursoNoSpinner(List<Curso> cursos, int cursoId){
+        int i = 0;
+        for (Curso curso : cursos) {
+            if(curso.cursoId == cursoId){
+                return i +1;
+            }
+            i++;
+        }
+
+        return 0;
+    }
 }

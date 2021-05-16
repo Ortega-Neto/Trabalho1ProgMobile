@@ -16,8 +16,7 @@ import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
-import com.example.trabalho1progmobile.infoAluno.InfoAlunoActivity;
-import com.example.trabalho1progmobile.inserirAluno.InserirAlunoActivity;
+import com.example.trabalho1progmobile.aluno.AlunoActivity;
 import com.example.trabalho1progmobile.inserirCurso.InserirCursoActivity;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(
                         MainActivity.this,
-                        InserirAlunoActivity.class
+                        AlunoActivity.class
                 );
                 startActivity(intent);
             }
@@ -169,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
                     Intent intent = new Intent(
                             MainActivity.this,
-                            InfoAlunoActivity.class
+                            AlunoActivity.class
                     );
                     intent.putExtra("aluno", aluno);
                     sweetAlertDialog.dismissWithAnimation();

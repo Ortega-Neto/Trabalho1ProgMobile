@@ -28,6 +28,7 @@
     <string name="curso">Curso</string>
     <string name="quantidade_de_horas">Quantidade de Horas</string>
     <string name="salvar">Salvar</string>
+    <string name="deletar">Deletar</string>
     <string name="aluno">Aluno</string>
 
 </resources>
