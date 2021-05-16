@@ -22,7 +22,7 @@ public interface CursoDao {
     Curso findByName(String nomecurso);
 
     @Update
-    void updateCurso(Curso curso);
+    Integer updateCurso(Curso curso);
 
     @Delete
     void delete(Curso curso);

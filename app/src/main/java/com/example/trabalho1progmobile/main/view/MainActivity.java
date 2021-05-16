@@ -17,7 +17,7 @@ import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
 import com.example.trabalho1progmobile.aluno.AlunoActivity;
-import com.example.trabalho1progmobile.inserirCurso.InserirCursoActivity;
+import com.example.trabalho1progmobile.curso.CursoActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(
                         MainActivity.this,
-                        InserirCursoActivity.class
+                        CursoActivity.class
                 );
                 startActivity(intent);
             }
@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         Intent intent = new Intent(
                                 MainActivity.this,
-                                InserirCursoActivity.class
+                                CursoActivity.class
                         );
                         intent.putExtra("curso", curso);
                         sweetAlertDialog.dismissWithAnimation();

@@ -31,6 +31,15 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/round_button_default"
                 android:text="@string/salvar" />
+
+            <Button
+                android:id="@+id/btnDeletarCurso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                android:background="@drawable/round_button_default"
+                android:text="@string/deletar" />
         </LinearLayout>
     </ScrollView>
 

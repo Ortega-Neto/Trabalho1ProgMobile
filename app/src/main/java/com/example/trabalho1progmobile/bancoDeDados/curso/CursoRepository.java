@@ -20,7 +20,7 @@ public class CursoRepository {
         bancoDeDados.cursoDao().delete(curso);
     }
 
-    public static void atualizarCurso(Curso curso){
-        bancoDeDados.cursoDao().updateCurso(curso);
+    public static Integer atualizarCurso(Curso curso){
+        return bancoDeDados.cursoDao().updateCurso(curso);
     }
 }

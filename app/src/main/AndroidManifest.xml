@@ -12,7 +12,7 @@
         android:theme="@style/Theme.Trabalho1ProgMobile"
         tools:replace="android:icon">
         <activity
-            android:name=".inserirCurso.InserirCursoActivity"
+            android:name=".curso.CursoActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".aluno.AlunoActivity"

@@ -16,11 +16,13 @@ import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
-import com.example.trabalho1progmobile.inserirCurso.InserirCursoActivity;
+import com.example.trabalho1progmobile.curso.CursoActivity;
+import com.example.trabalho1progmobile.main.view.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.trabalho1progmobile.utils.DeletarCurso.deletarCursoComSeguranca;
 import static com.example.trabalho1progmobile.utils.SpinnerCursoUtils.retornaOValorDaPosicaoDoCursoNoSpinner;
 import static com.example.trabalho1progmobile.utils.SpinnerCursoUtils.transformarListaDeCursosEmArrayDeCursos;
 
@@ -31,7 +33,6 @@ public class AlunoActivity extends AppCompatActivity {
     private EditText edtCpfDoAluno;
     private EditText edtEmailDoAluno;
     private EditText edtTelefoneDoAluno;
-    private Button btnDeletarAluno;
     private int cursoSelecionado;
     private Spinner spinner;
     private boolean editarAluno = false;
@@ -42,7 +43,6 @@ public class AlunoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aluno);
 
-        bindComOLayout();
         criarSpinnerDeCursos();
 
         alunoSelecionado = (Aluno) getIntent().getSerializableExtra("aluno");
@@ -53,9 +53,9 @@ public class AlunoActivity extends AppCompatActivity {
         else {
             editarAluno = true;
             setTitle(alunoSelecionado.nomeAluno);
-            btnDeletarAluno.setVisibility(View.VISIBLE);
-            preencherDadosDoAluno(alunoSelecionado);
         }
+
+        bindComOLayout();
     }
 
     @Override
@@ -97,7 +97,7 @@ public class AlunoActivity extends AppCompatActivity {
                 if(arrayDeCursos.get(position).equals("Novo Curso")){
                     Intent intent = new Intent(
                             AlunoActivity.this,
-                            InserirCursoActivity.class
+                            CursoActivity.class
                             );
                     startActivity(intent);
                 }
@@ -118,7 +118,12 @@ public class AlunoActivity extends AppCompatActivity {
         edtEmailDoAluno = findViewById(R.id.edtEmailDoAluno);
         edtTelefoneDoAluno = findViewById(R.id.edtTelefoneDoAluno);
         Button btnSalvarAluno = findViewById(R.id.btnSalvarAluno);
-        btnDeletarAluno = findViewById(R.id.btnDeletarAluno);
+        Button btnDeletarAluno = findViewById(R.id.btnDeletarAluno);
+
+        if(editarAluno) {
+            btnDeletarAluno.setVisibility(View.VISIBLE);
+            preencherDadosDoAluno(alunoSelecionado);
+        }
 
         btnSalvarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,7 +135,13 @@ public class AlunoActivity extends AppCompatActivity {
         btnDeletarAluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
+                AsyncTask.execute(() -> {
+                    AlunoRepository.deletarAluno(alunoSelecionado);
+
+                    runOnUiThread(()-> {
+                        finish();
+                    });
+                });
             }
         });
     }
