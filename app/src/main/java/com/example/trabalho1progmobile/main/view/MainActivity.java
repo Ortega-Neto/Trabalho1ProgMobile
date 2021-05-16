@@ -171,7 +171,6 @@ public class MainActivity extends AppCompatActivity {
                             MainActivity.this,
                             InfoAlunoActivity.class
                     );
-                    startActivity(intent);
                     intent.putExtra("aluno", aluno);
                     sweetAlertDialog.dismissWithAnimation();
                     startActivity(intent);
@@ -199,9 +198,8 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
                         Intent intent = new Intent(
                                 MainActivity.this,
-                                InfoAlunoActivity.class
+                                InserirCursoActivity.class
                         );
-                        startActivity(intent);
                         intent.putExtra("curso", curso);
                         sweetAlertDialog.dismissWithAnimation();
                         startActivity(intent);

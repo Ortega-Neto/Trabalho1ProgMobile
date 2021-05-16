@@ -12,4 +12,8 @@ public class Curso implements Serializable {
     public String nomeCurso;
     public int qtdeHoras;
 
+    @Override
+    public String toString() {
+        return this.nomeCurso;
+    }
 }

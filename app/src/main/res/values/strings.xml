@@ -11,6 +11,10 @@
     <string name="inserir_curso">Inserir Curso</string>
     <string name="listagem_alunos_cursos">Listagem De Alunos e Cursos</string>
 
+    <!--  Mensagens de Erro  -->
+    <string name="campo_vazio">Este dado não pode ser vazio</string>
+    <string name="curso_vazio">Por favor, selecione um curso</string>
+
     <string name="adicionar_aluno">+ Aluno</string>
     <string name="adicionar_curso">+ Curso</string>
     <string name="email">Email</string>

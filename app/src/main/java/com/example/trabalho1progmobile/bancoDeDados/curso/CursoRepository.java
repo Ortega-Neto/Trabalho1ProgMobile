@@ -12,7 +12,7 @@ public class CursoRepository {
         return bancoDeDados.cursoDao().getAllCursos();
     }
 
-    public static Curso buscarTodosOsCursosPorNome(String nome){
+    public static Curso buscarCursoPorNome(String nome){
         return bancoDeDados.cursoDao().findByName(nome);
     }
 
