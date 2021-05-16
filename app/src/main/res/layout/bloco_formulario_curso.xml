@@ -33,7 +33,7 @@
             android:fitsSystemWindows="true"
             android:gravity="center"
             android:hint="@string/horas"
-            android:inputType="text" />
+            android:inputType="number|text|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
