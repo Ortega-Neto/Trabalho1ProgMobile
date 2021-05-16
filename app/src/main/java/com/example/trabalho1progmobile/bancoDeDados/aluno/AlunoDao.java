@@ -15,8 +15,8 @@ public interface AlunoDao {
     @Query("SELECT * FROM aluno")
     List<Aluno> getAllAlunos();
 
-    @Query("SELECT * FROM aluno WHERE cursoId IN (:alunosIds)")
-    List<Aluno> loadAllByIds(int[] alunosIds);
+    @Query("SELECT cursoId FROM aluno")
+    List<Integer> getAllCursos();
 
     @Query("SELECT * FROM aluno WHERE nomeAluno LIKE :nomeAluno LIMIT 1")
     Aluno findByName(String nomeAluno);

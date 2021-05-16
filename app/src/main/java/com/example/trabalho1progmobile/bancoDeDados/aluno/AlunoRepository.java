@@ -12,8 +12,8 @@ public class AlunoRepository{
         return bancoDeDados.alunoDao().getAllAlunos();
     }
 
-    public static Aluno buscarTodosOsAlunosPorNome(String nome){
-        return bancoDeDados.alunoDao().findByName(nome);
+    public static List<Integer> buscarTodosCursosDosAlunos(){
+        return bancoDeDados.alunoDao().getAllCursos();
     }
 
     public static void deletarAluno(Aluno aluno){

@@ -23,6 +23,8 @@ import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
+import static com.example.trabalho1progmobile.utils.DeletarCurso.deletarCursoComSeguranca;
+
 public class MainActivity extends AppCompatActivity {
     public static BancoDeDados bancoDeDados;
     private ListView lstViewAlunoCursos;
@@ -160,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void opcoesAluno(Aluno aluno){
         new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
-            .setTitleText("Opções para o aluno" + aluno.nomeAluno)
+            .setTitleText("Opções para o Aluno: " + aluno.nomeAluno)
             .setConfirmText("Info")
             .setCancelText("Deletar Aluno")
             .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -179,9 +181,14 @@ public class MainActivity extends AppCompatActivity {
             .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
                 @Override
                 public void onClick(SweetAlertDialog sweetAlertDialog) {
-                    AlunoRepository.deletarAluno(aluno);
-                    sweetAlertDialog.dismissWithAnimation();
-                    listarAlunos();
+                    AsyncTask.execute(() -> {
+                        AlunoRepository.deletarAluno(aluno);
+
+                        runOnUiThread(()-> {
+                            sweetAlertDialog.dismissWithAnimation();
+                            listarAlunos();
+                        });
+                    });
                 }
             })
             .show();
@@ -189,9 +196,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void opcoesCurso(Curso curso){
         new SweetAlertDialog(this, SweetAlertDialog.NORMAL_TYPE)
-                .setTitleText("Opções para o aluno" + curso.nomeCurso)
+                .setTitleText("Opções para o Curso: " + curso.nomeCurso)
                 .setConfirmText("Info")
-                .setCancelText("Deletar Aluno")
+                .setCancelText("Deletar Curso")
                 .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
@@ -208,9 +215,14 @@ public class MainActivity extends AppCompatActivity {
                 .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
                     @Override
                     public void onClick(SweetAlertDialog sweetAlertDialog) {
-                        CursoRepository.deletarCurso(curso);
-                        sweetAlertDialog.dismissWithAnimation();
-                        listarCursos();
+                        AsyncTask.execute(() -> {
+                            deletarCursoComSeguranca(MainActivity.this, curso);
+
+                            runOnUiThread(()-> {
+                                sweetAlertDialog.dismissWithAnimation();
+                                listarCursos();
+                            });
+                        });
                     }
                 })
                 .show();
