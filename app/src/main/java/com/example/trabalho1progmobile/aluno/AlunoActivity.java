@@ -154,6 +154,7 @@ public class AlunoActivity extends AppCompatActivity {
     private void verificarDadosInseridos(){
         if(verificarSeOsCamposEstaoPreenchidos()) {
             Aluno aluno = new Aluno();
+            aluno.alunoId = alunoSelecionado.alunoId;
             aluno.nomeAluno = edtNomeDoAluno.getText().toString();
             aluno.cpf = edtCpfDoAluno.getText().toString();
             aluno.email = edtEmailDoAluno.getText().toString();

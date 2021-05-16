@@ -103,6 +103,7 @@ public class CursoActivity extends AppCompatActivity {
     private void verificarDadosInseridos(){
         if(verificarSeOsCamposEstaoPreenchidos()) {
             Curso curso = new Curso();
+            curso.cursoId = cursoSelecionado.cursoId;
             curso.nomeCurso = edtNomeDoCurso.getText().toString();
             curso.qtdeHoras = Integer.parseInt(edtHorasDoCurso.getText().toString());
 
