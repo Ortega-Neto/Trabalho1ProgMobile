@@ -28,7 +28,7 @@ public abstract class BancoDeDados extends RoomDatabase {
     private static BancoDeDados buildDataBase(Context context){
         return Room.databaseBuilder(
                 context,
-                BancoDeDados.class, "bancoDeDados"
+                BancoDeDados.class, "CursosOnline"
         ).build();
     }
 }

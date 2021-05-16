@@ -20,8 +20,8 @@ public class AlunoRepository{
         bancoDeDados.alunoDao().delete(aluno);
     }
 
-    public static void atualizarAluno(Aluno aluno){
-        bancoDeDados.alunoDao().updateAluno(aluno);
+    public static int atualizarAluno(Aluno aluno){
+        return bancoDeDados.alunoDao().updateAluno(aluno);
     }
 
 }

@@ -22,7 +22,7 @@ public interface AlunoDao {
     Aluno findByName(String nomeAluno);
 
     @Update
-    void updateAluno(Aluno aluno);
+    int updateAluno(Aluno aluno);
 
     @Delete
     void delete(Aluno aluno);

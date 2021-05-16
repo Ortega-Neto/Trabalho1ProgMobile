@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.trabalho1progmobile.R;
-import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
 
@@ -20,7 +19,7 @@ public class InserirCursoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(getString(R.string.inserir_curso));
-        setContentView(R.layout.activity_inserir_curso);
+        setContentView(R.layout.activity_curso);
 
         bindComOLayout();
     }

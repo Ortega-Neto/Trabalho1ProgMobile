@@ -12,12 +12,6 @@
         android:theme="@style/Theme.Trabalho1ProgMobile"
         tools:replace="android:icon">
         <activity
-            android:name=".infoAluno.InfoAlunoActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity
-            android:name=".infoCurso.InfoCursoActivity"
-            android:windowSoftInputMode="adjustResize"/>
-        <activity
             android:name=".inserirCurso.InserirCursoActivity"
             android:windowSoftInputMode="adjustResize"/>
         <activity

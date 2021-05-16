@@ -35,7 +35,7 @@ public class AlunoActivity extends AppCompatActivity {
     private int cursoSelecionado;
     private Spinner spinner;
     private boolean editarAluno = false;
-    private int cursoDoAluno;
+    private Aluno alunoSelecionado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,6 @@ public class AlunoActivity extends AppCompatActivity {
         bindComOLayout();
         criarSpinnerDeCursos();
 
-        Aluno alunoSelecionado;
         alunoSelecionado = (Aluno) getIntent().getSerializableExtra("aluno");
 
         if(alunoSelecionado == null){
@@ -53,7 +52,6 @@ public class AlunoActivity extends AppCompatActivity {
         }
         else {
             editarAluno = true;
-            cursoDoAluno = alunoSelecionado.cursoId;
             setTitle(alunoSelecionado.nomeAluno);
             btnDeletarAluno.setVisibility(View.VISIBLE);
             preencherDadosDoAluno(alunoSelecionado);
@@ -82,7 +80,7 @@ public class AlunoActivity extends AppCompatActivity {
 
                 if(editarAluno) {
                     int idDoCursoNoSpinner = retornaOValorDaPosicaoDoCursoNoSpinner(
-                            listaDeCursos, cursoDoAluno
+                            listaDeCursos, alunoSelecionado.cursoId
                     );
                     spinner.setSelection(idDoCursoNoSpinner);}
 
@@ -153,7 +151,12 @@ public class AlunoActivity extends AppCompatActivity {
             aluno.telefone = edtTelefoneDoAluno.getText().toString();
             aluno.cursoId = listaDeCursos.get(cursoSelecionado).cursoId;
 
-            salvarAlunoNoBanco(aluno);
+            if(editarAluno){
+                verificarSeOsDadosForamAlterados(aluno);
+            }
+            else {
+                salvarAlunoNoBanco(aluno);
+            }
         }
     }
 
@@ -183,6 +186,24 @@ public class AlunoActivity extends AppCompatActivity {
         return retorno;
     }
 
+    private void verificarSeOsDadosForamAlterados(Aluno aluno){
+        if(
+            !alunoSelecionado.nomeAluno.equals(aluno.nomeAluno) ||
+            alunoSelecionado.cursoId != aluno.cursoId ||
+            !alunoSelecionado.email.equals(aluno.email) ||
+            !alunoSelecionado.cpf.equals(aluno.cpf) ||
+            !alunoSelecionado.telefone.equals(aluno.telefone)
+        ){
+            atualizarAlunoNoBanco(aluno);
+        }
+        else {
+            Toast.makeText(this,
+                    getString(R.string.dados_iguais),
+                    Toast.LENGTH_LONG)
+                    .show();
+        }
+    }
+
     private void salvarAlunoNoBanco(Aluno aluno){
         AsyncTask.execute(() -> {
             long retornoBD = AlunoRepository.inserirAluno(aluno);;
@@ -193,6 +214,25 @@ public class AlunoActivity extends AppCompatActivity {
             }
             else{
                 mensagem = "Cadastro de Aluno realizado com sucesso!";
+            }
+
+            runOnUiThread(()-> {
+                Toast.makeText(this, mensagem, Toast.LENGTH_LONG).show();
+            });
+            finish();
+        });
+    }
+
+    private void atualizarAlunoNoBanco(Aluno aluno){
+        AsyncTask.execute(() -> {
+            long retornoBD = AlunoRepository.atualizarAluno(aluno);;
+
+            String mensagem;
+            if(retornoBD == -1){
+                mensagem = "Erro ao Atualizar Aluno!";
+            }
+            else{
+                mensagem = "Cadastro de Aluno atualizado com sucesso!";
             }
 
             runOnUiThread(()-> {
