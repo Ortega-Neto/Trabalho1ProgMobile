@@ -12,8 +12,8 @@ public class CursoRepository {
         return bancoDeDados.cursoDao().getAllCursos();
     }
 
-    public static Curso buscarCursoPorNome(String nome){
-        return bancoDeDados.cursoDao().findByName(nome);
+    public static String buscarCursoPorId(int id){
+        return bancoDeDados.cursoDao().loadById(id);
     }
 
     public static void deletarCurso(Curso curso){

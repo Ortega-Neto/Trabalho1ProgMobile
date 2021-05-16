@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="30dp">
+    android:layout_margin="30dp"
+    android:background="@drawable/borda_linear_layout">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,15 +12,35 @@
         android:gravity="center"
         android:hint="@string/aluno"
         android:textColor="#000000"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
-        android:id="@+id/txtViewNomeDoAluno"
+        android:id="@+id/edtNomeDoAluno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="2dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="@string/curso"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/edtCursoDoAluno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="30dp">
+    android:layout_margin="30dp"
+    android:background="@drawable/borda_linear_layout">
 
     <TextView
         android:layout_width="match_parent"
@@ -11,7 +12,8 @@
         android:gravity="center"
         android:hint="@string/curso"
         android:textColor="#000000"
-        android:textSize="14sp" />
+        android:textSize="14sp"
+        android:layout_marginTop="5dp"/>
 
     <TextView
         android:id="@+id/edtNomeDoCurso"
@@ -20,5 +22,6 @@
         android:gravity="center"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

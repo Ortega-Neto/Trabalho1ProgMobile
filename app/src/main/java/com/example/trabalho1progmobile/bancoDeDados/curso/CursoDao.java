@@ -15,8 +15,8 @@ public interface CursoDao {
     @Query("SELECT * FROM curso")
     List<Curso> getAllCursos();
 
-    @Query("SELECT * FROM curso WHERE cursoId IN (:cursosIds)")
-    List<Curso> loadAllByIds(int[] cursosIds);
+    @Query("SELECT nomeCurso FROM curso WHERE cursoId = (:cursosId)")
+    String loadById(int cursosId);
 
     @Query("SELECT * FROM curso WHERE nomecurso LIKE :nomecurso LIMIT 1")
     Curso findByName(String nomecurso);

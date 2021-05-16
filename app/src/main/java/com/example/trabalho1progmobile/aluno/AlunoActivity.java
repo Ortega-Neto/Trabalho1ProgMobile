@@ -17,12 +17,10 @@ import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 import com.example.trabalho1progmobile.bancoDeDados.curso.CursoRepository;
 import com.example.trabalho1progmobile.curso.CursoActivity;
-import com.example.trabalho1progmobile.main.view.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.trabalho1progmobile.utils.DeletarCurso.deletarCursoComSeguranca;
 import static com.example.trabalho1progmobile.utils.SpinnerCursoUtils.retornaOValorDaPosicaoDoCursoNoSpinner;
 import static com.example.trabalho1progmobile.utils.SpinnerCursoUtils.transformarListaDeCursosEmArrayDeCursos;
 
@@ -113,7 +111,7 @@ public class AlunoActivity extends AppCompatActivity {
     }
 
     private void bindComOLayout(){
-        edtNomeDoAluno = findViewById(R.id.txtViewNomeDoAluno);
+        edtNomeDoAluno = findViewById(R.id.edtNomeDoAluno);
         edtCpfDoAluno = findViewById(R.id.edtCpfDoAluno);
         edtEmailDoAluno = findViewById(R.id.edtEmailDoAluno);
         edtTelefoneDoAluno = findViewById(R.id.edtTelefoneDoAluno);
