@@ -14,7 +14,7 @@
     <!--  Mensagens de Erro  -->
     <string name="campo_vazio">Este dado não pode ser vazio</string>
     <string name="curso_vazio">Por favor, selecione um curso</string>
-    <string name="dados_iguais">Dados iguais, regristro de Aluno não precisa ser atualizado</string>
+    <string name="dados_iguais">Dados iguais, regristro não precisa ser atualizado</string>
     <string name="erro_deletar_curso">Não é possível deletar o curso, pois, existe um aluno cadastrado nele</string>
 
     <string name="adicionar_aluno">+ Aluno</string>
