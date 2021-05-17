@@ -11,9 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Trabalho1ProgMobile"
         tools:replace="android:icon">
+        <activity android:name=".aluno.BuscarAlunoActivity"></activity>
         <activity
             android:name=".curso.CursoActivity"
-            android:windowSoftInputMode="adjustResize"/>
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".aluno.AlunoActivity"
             android:windowSoftInputMode="adjustResize" />

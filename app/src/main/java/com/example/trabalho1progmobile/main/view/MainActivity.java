@@ -1,10 +1,14 @@
 package com.example.trabalho1progmobile.main.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +16,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import com.example.trabalho1progmobile.R;
+import com.example.trabalho1progmobile.aluno.BuscarAlunoActivity;
 import com.example.trabalho1progmobile.bancoDeDados.BancoDeDados;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
@@ -140,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                         this,
                         R.layout.list_item_aluno,
                         listaDeAlunos
-                        );
+                );
                 lstViewAlunoCursos.setAdapter(arrayAdapterAlunos);
             });
         });
@@ -228,4 +233,26 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        if (item.getItemId() == R.id.menu_pesquisar) {
+            Intent intent = new Intent(
+                    MainActivity.this,
+                    BuscarAlunoActivity.class
+            );
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 }

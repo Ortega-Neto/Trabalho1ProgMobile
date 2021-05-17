@@ -18,8 +18,8 @@ public interface AlunoDao {
     @Query("SELECT cursoId FROM aluno")
     List<Integer> getAllCursos();
 
-    @Query("SELECT * FROM aluno WHERE nomeAluno LIKE :nomeAluno LIMIT 1")
-    Aluno findByName(String nomeAluno);
+    @Query("SELECT * FROM aluno WHERE nomeAluno LIKE '%' || :nomeAluno || '%'")
+    List<Aluno> findByName(String nomeAluno);
 
     @Update
     int updateAluno(Aluno aluno);

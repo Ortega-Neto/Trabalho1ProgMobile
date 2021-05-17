@@ -24,4 +24,8 @@ public class AlunoRepository{
         return bancoDeDados.alunoDao().updateAluno(aluno);
     }
 
+    public static List<Aluno> buscarAlunoPorNome(String nome){
+        return bancoDeDados.alunoDao().findByName(nome);
+    }
+
 }
