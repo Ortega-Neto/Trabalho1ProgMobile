@@ -1,8 +1,6 @@
 package com.example.trabalho1progmobile.aluno;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +8,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import com.example.trabalho1progmobile.R;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
 import com.example.trabalho1progmobile.bancoDeDados.aluno.AlunoRepository;
 import com.example.trabalho1progmobile.main.view.AlunoListAdapter;
-import com.example.trabalho1progmobile.main.view.MainActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 

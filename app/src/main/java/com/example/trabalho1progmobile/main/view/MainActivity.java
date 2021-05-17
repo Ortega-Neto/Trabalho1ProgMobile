@@ -1,9 +1,7 @@
 package com.example.trabalho1progmobile.main.view;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -26,7 +24,6 @@ import com.example.trabalho1progmobile.aluno.AlunoActivity;
 import com.example.trabalho1progmobile.curso.CursoActivity;
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 import static com.example.trabalho1progmobile.utils.DeletarCurso.deletarCursoComSeguranca;
