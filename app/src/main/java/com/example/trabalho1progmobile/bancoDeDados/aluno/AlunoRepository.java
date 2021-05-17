@@ -1,28 +1,31 @@
 package com.example.trabalho1progmobile.bancoDeDados.aluno;
-
 import java.util.List;
-import static com.example.trabalho1progmobile.utils.AppUtils.bancoDeDados;
+
+import static com.example.trabalho1progmobile.main.view.MainActivity.bancoDeDados;
 
 public class AlunoRepository{
-
-    public static void inserirAluno(Aluno aluno){
-        bancoDeDados.alunoDao().inserirAluno(aluno);
+    public static long inserirAluno(Aluno aluno){
+        return bancoDeDados.alunoDao().inserirAluno(aluno);
     }
 
     public static List<Aluno> buscarTodosOsAlunos(){
         return bancoDeDados.alunoDao().getAllAlunos();
     }
 
-    public static Aluno buscarTodosOsAlunosPorNome(String nome){
-        return bancoDeDados.alunoDao().findByName(nome);
+    public static List<Integer> buscarTodosCursosDosAlunos(){
+        return bancoDeDados.alunoDao().getAllCursos();
     }
 
     public static void deletarAluno(Aluno aluno){
         bancoDeDados.alunoDao().delete(aluno);
     }
 
-    public static void atualizarAluno(Aluno aluno){
-        bancoDeDados.alunoDao().updateAluno(aluno);
+    public static int atualizarAluno(Aluno aluno){
+        return bancoDeDados.alunoDao().updateAluno(aluno);
+    }
+
+    public static List<Aluno> buscarAlunoPorNome(String nome){
+        return bancoDeDados.alunoDao().findByName(nome);
     }
 
 }

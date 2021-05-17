@@ -16,7 +16,7 @@ public abstract class BancoDeDados extends RoomDatabase {
     public abstract CursoDao cursoDao();
     public abstract AlunoDao alunoDao();
 
-    public static volatile BancoDeDados instance = null;
+    private static volatile BancoDeDados instance = null;
 
     public static synchronized BancoDeDados getInstance(Context context){
         if (instance == null) {
@@ -28,7 +28,7 @@ public abstract class BancoDeDados extends RoomDatabase {
     private static BancoDeDados buildDataBase(Context context){
         return Room.databaseBuilder(
                 context,
-                BancoDeDados.class, "bancoDeDados"
+                BancoDeDados.class, "CursosOnline"
         ).build();
     }
 }

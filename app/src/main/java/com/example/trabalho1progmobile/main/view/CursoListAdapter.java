@@ -1,22 +1,22 @@
-package com.example.trabalho1progmobile.alunos;
+package com.example.trabalho1progmobile.main.view;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.trabalho1progmobile.R;
-import com.example.trabalho1progmobile.bancoDeDados.aluno.Aluno;
+import com.example.trabalho1progmobile.bancoDeDados.curso.Curso;
 
 import java.util.List;
 
-public class AlunoListAdapter extends ArrayAdapter<Aluno> {
+public class CursoListAdapter extends ArrayAdapter<Curso>  {
     private int resourceLayout;
     private Context mContext;
 
-    public AlunoListAdapter(Context context, int resource, List<Aluno> items) {
+    public CursoListAdapter(Context context, int resource, List<Curso> items) {
         super(context, resource, items);
         this.resourceLayout = resource;
         this.mContext = context;
@@ -33,16 +33,12 @@ public class AlunoListAdapter extends ArrayAdapter<Aluno> {
             v = vi.inflate(resourceLayout, null);
         }
 
-        Aluno a = getItem(position);
+        Curso c = getItem(position);
 
-        if (a != null) {
-            EditText nome = (EditText) v.findViewById(R.id.edtNomeDoAluno);
-            EditText id = (EditText) v.findViewById(R.id.edtIDAluno);
-            EditText edtEmail = (EditText) v.findViewById(R.id.edtEmail);
+        if (c != null) {
+            TextView edtNomeDoCurso = (TextView) v.findViewById(R.id.edtNomeDoCurso);
 
-            nome.setText(a.nomeAluno);
-            id.setText(a.alunoId);
-            edtEmail.setText(a.email);
+            edtNomeDoCurso.setText(c.nomeCurso);
         }
 
         return v;

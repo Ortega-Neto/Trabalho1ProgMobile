@@ -10,19 +10,19 @@ import java.util.List;
 @Dao
 public interface AlunoDao {
     @Insert
-    void inserirAluno(Aluno aluno);
+    long inserirAluno(Aluno aluno);
 
     @Query("SELECT * FROM aluno")
     List<Aluno> getAllAlunos();
 
-    @Query("SELECT * FROM aluno WHERE cursoId IN (:alunosIds)")
-    List<Aluno> loadAllByIds(int[] alunosIds);
+    @Query("SELECT cursoId FROM aluno")
+    List<Integer> getAllCursos();
 
-    @Query("SELECT * FROM aluno WHERE nomeAluno LIKE :nomeAluno LIMIT 1")
-    Aluno findByName(String nomeAluno);
+    @Query("SELECT * FROM aluno WHERE nomeAluno LIKE '%' || :nomeAluno || '%'")
+    List<Aluno> findByName(String nomeAluno);
 
     @Update
-    void updateAluno(Aluno aluno);
+    int updateAluno(Aluno aluno);
 
     @Delete
     void delete(Aluno aluno);

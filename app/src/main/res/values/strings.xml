@@ -1,14 +1,37 @@
 <resources>
     <string name="app_name">Trabalho1ProgMobile</string>
-    <string name="adicionar_aluno">+ Aluno</string>
-    <string name="adicionar_curso">+ Curso</string>
-    <string name="email">Email</string>
-    <string name="id">Id</string>
-    <string name="nome">Nome</string>
 
     <string-array name="alunoCurso">
         <item>Aluno</item>
         <item>Curso</item>
     </string-array>
+
+    <!--  Nomes das Telas  -->
+    <string name="inserir_aluno">Inserir Aluno</string>
+    <string name="inserir_curso">Inserir Curso</string>
+    <string name="listagem_alunos_cursos">Listagem De Alunos e Cursos</string>
+
+    <!--  Mensagens de Erro  -->
+    <string name="campo_vazio">Este dado não pode ser vazio</string>
+    <string name="curso_vazio">Por favor, selecione um curso</string>
+    <string name="dados_iguais">Dados iguais, regristro de Aluno não precisa ser atualizado</string>
+    <string name="erro_deletar_curso">Não é possível deletar o curso, pois, existe um aluno cadastrado nele</string>
+
+    <string name="adicionar_aluno">+ Aluno</string>
+    <string name="adicionar_curso">+ Curso</string>
+    <string name="email">Email</string>
+    <string name="id">Id</string>
+    <string name="nome">Nome</string>
+    <string name="horas">Horas</string>
+    <string name="remover">- Remover</string>
+    <string name="cpf">CPF</string>
+    <string name="telefone">Telefone</string>
+    <string name="nomeAluno">Nome</string>
+    <string name="curso">Curso</string>
+    <string name="quantidade_de_horas">Quantidade de Horas</string>
+    <string name="salvar">Salvar</string>
+    <string name="deletar">Deletar</string>
+    <string name="aluno">Aluno</string>
+    <string name="pesquisar">Pesquisar</string>
 
 </resources>
