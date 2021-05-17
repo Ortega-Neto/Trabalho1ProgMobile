@@ -18,9 +18,6 @@ public interface CursoDao {
     @Query("SELECT nomeCurso FROM curso WHERE cursoId = (:cursosId)")
     String loadById(int cursosId);
 
-    @Query("SELECT * FROM curso WHERE nomecurso LIKE :nomecurso LIMIT 1")
-    Curso findByName(String nomecurso);
-
     @Update
     Integer updateCurso(Curso curso);
 
