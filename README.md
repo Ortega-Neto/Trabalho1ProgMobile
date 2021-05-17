@@ -7,7 +7,7 @@
 - Ericca Rickli
 - Igor Braga Galvan
 - Luiz Carlos Ortega Neto
-Curso: Engenharia de Software
+- Curso: Engenharia de Software
 
 ## Funcionalidades
 - CRUD de Alunos
